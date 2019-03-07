@@ -49,7 +49,7 @@ articles.forEach(item => {
 })
 
 
-// Stretch 
+// Stretch ArticleComponents
 let articleArr = [
   {header: "Lambda School Students: We're the best!",
    date: "Nov 5th, 2017",
@@ -67,7 +67,7 @@ let articleArr = [
    date: "Nov 7th, 2017",
    htmlText: "Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twilek. Ben amidala secura skywalker landomoff wicket tatooine luke. Solo wampa wampa calrissian yoda moff. Darth grievous darth gonk darth hutt. Darth baba skywalker watto fett jango maul han. Mon ewok sidious sidious lando kenobi grievous gamorrean solo. Yoda wedge utapau darth calamari. Hutt calamari darth jabba. Darth dooku amidala organa moff. Boba darth binks solo hutt skywalker dantooine skywalker. Qui-gonnjar twi'lek jinn leia jango skywalker mon."
   },
-  {header: "What is Lorem Ipsum?",
+  {header: "What is Lorem Ipsum are you Another?",
    date: "Nov 7th, 2017",
    htmlText: "Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twilek. Ben amidala secura skywalker landomoff wicket tatooine luke. Solo wampa wampa calrissian yoda moff. Darth grievous darth gonk darth hutt. Darth baba skywalker watto fett jango maul han. Mon ewok sidious sidious lando kenobi grievous gamorrean solo. Yoda wedge utapau darth calamari. Hutt calamari darth jabba. Darth dooku amidala organa moff. Boba darth binks solo hutt skywalker dantooine skywalker. Qui-gonnjar twi'lek jinn leia jango skywalker mon."
  },
@@ -88,6 +88,8 @@ class ArticleComponent{
     this.container.appendChild(this.htmlText)
     this.container.appendChild(this.expandButton)
     this.container.appendChild(this.closeButton)
+
+    console.log(this.container)
     return this.container
   }
   createElement(tagName, className="", textContent="", cb=null){
@@ -119,7 +121,25 @@ class ArticleComponent{
 
 let articleComponents = document.querySelectorAll('.articles')[0]
 console.log(articleComponents)
-
 articleArr.forEach((itemData, index) => {
   articleComponents.appendChild(new ArticleComponent(itemData, index))
 })
+
+// ADD article button
+let addArticleBtn = document.querySelectorAll('#addArticleBtn')[0]
+console.log('addArticleBtn clickedaddArticleBtn', addArticleBtn);
+
+addArticleBtn.addEventListener('click', function(){
+  addArticle.apply() 
+})
+
+
+function addArticle(){
+  articleComponents.appendChild(new ArticleComponent(
+    {header: "This is another subject",
+    date: "March 6, 2019",
+    htmlText: "Here is the test tatooine luke. Solo wampa wampa calrissian yoda moff. Darth grievous darth gonk darth hutt. Darth baba skywalker watto fett jango maul han. Mon ewok sidious sidious lando kenobi grievous gamorrean solo. Yoda wedge utapau darth calamari. Hutt calamari darth jabba. Darth dooku amidala organa moff. Boba darth binks solo hutt skywalker dantooine skywalker. Qui-gonnjar twi'lek jinn leia jango skywalker mon."
+    },
+  ))
+}
+
